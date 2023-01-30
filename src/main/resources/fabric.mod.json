@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "origamikings-api",
+	"version": "${version}",
+	"name": "OrigamiKing's API",
+	"description": "An API that my mods use",
+	"authors": [
+		"OrigamiKing3612"
+	],
+	"contact": {
+		"homepage": "mods.origamiking.net",
+		"sources": ""
+	},
+	"license": "Apache-2.0",
+	"icon": "assets/origamikings-api/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.origamiking.mcmods.oapi.OrigamiKingsApi"
+		],
+		"fabric-datagen": [
+			"net.origamiking.mcmods.oapi.datagen/ModDataGenerator"
+		],
+		"client": [
+			"net.origamiking.mcmods.oapi.OrigamiKingsApiClient"
+		]
+	},
+	"mixins": [
+		"origamikings-api.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.10",
+		"minecraft": "~1.19.3",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+	}
+}
