@@ -34,6 +34,11 @@
 		"java": ">=17",
 		"fabric-api": "*"
 	},
+	"jars": [
+		{
+			"file": "jars/fabric-api-0.74.0+1.19.3.jar"
+		}
+	],
 	"suggests": {
 	}
 }
