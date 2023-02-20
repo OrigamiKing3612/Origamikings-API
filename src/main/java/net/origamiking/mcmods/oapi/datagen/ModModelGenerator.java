@@ -11,7 +11,7 @@ public class ModModelGenerator extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator/*, BlockStateModelGenerator.BlockTexturePool blockTexturePool*/) {
 
     }
 
