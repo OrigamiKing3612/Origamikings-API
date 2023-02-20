@@ -1,7 +1,5 @@
-package net.origamiking.mcmods.oapi.recipe;
+package net.origamiking.mcmods.oapi.recipes;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -10,8 +8,8 @@ import net.minecraft.recipe.book.RecipeCategory;
 
 import java.util.function.Consumer;
 
-public class ModRecipeProvider /* extends RecipeProvider*/ extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output) {super(output);}
+public class ModRecipeProvider /* extends RecipeProvider extends FabricRecipeProvider*/ {
+//    public ModRecipeProvider(FabricDataOutput output) {super(output);}
     public static ShapelessRecipeJsonBuilder createButtonRecipe(RecipeCategory category, ItemConvertible output, Ingredient input) {
         return ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input(input);
     }
@@ -54,8 +52,6 @@ public class ModRecipeProvider /* extends RecipeProvider*/ extends FabricRecipeP
     public static void offerWaxableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         createVerticalSlab(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
-    @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
-
-    }
+//    @Override
+//    public void generate(Consumer<RecipeJsonProvider> exporter) {}
 }
