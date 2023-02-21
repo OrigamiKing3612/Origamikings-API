@@ -36,6 +36,9 @@
 	},
 	"jars": [
 		{
+			"file": "jars/geckolib-fabric-1.19.3-4.0.3.jar"
+		},
+		{
 			"file": "jars/fabric-api-0.74.0+1.19.3.jar"
 		}
 	],
