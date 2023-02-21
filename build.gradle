@@ -112,6 +112,7 @@ publishing {
 			dependencies { // A special DSL for creating dependencies
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
+				embedded.project "geckolib"
 			}
 		syncBodyFrom = rootProject.file("README.md").text
 		}
