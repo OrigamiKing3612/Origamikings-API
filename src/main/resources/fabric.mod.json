@@ -43,5 +43,21 @@
 		}
 	],
 	"suggests": {
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.website": "mods.origamiking.net"
+			},
+			"badges": [ "library" ],
+			"parent": {
+				"id": "origamikings-api",
+				"name": "OrigamiKing's API",
+				"description": "An API that my mods use",
+				"icon": "assets/origamikings-api/icon.png",
+				"badges": [ "library" ]
+			},
+			"update_checker": false
+		}
 	}
 }
