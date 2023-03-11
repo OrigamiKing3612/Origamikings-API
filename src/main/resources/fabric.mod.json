@@ -21,7 +21,7 @@
 			"net.origamiking.mcmods.oapi.OrigamiKingsApi"
 		],
 		"fabric-datagen": [
-			"net.origamiking.mcmods.oapi.datagen/ModDataGenerator"
+			"net.origamiking.mcmods.oapi.datagen.ModDataGenerator"
 		],
 		"client": [
 			"net.origamiking.mcmods.oapi.OrigamiKingsApiClient"
