@@ -46,12 +46,13 @@ public class ModRecipeProvider /* extends RecipeProvider extends FabricRecipePro
     public static void offerTrappedChestRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
         createTrappedChest(category, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
-    public static ShapelessRecipeJsonBuilder createWaxable(ItemConvertible output, Ingredient input) {
+    public static ShapelessRecipeJsonBuilder createWaxable(RecipeCategory category, ItemConvertible output, Ingredient input) {
         return ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input(input).input(Items.HONEYCOMB);
     }
-    public static void offerWaxableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-        createVerticalSlab(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    public static void offerWaxableRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
+        createWaxable(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
+
 //    @Override
 //    public void generate(Consumer<RecipeJsonProvider> exporter) {}
 }

@@ -99,8 +99,7 @@ publishing {
 		// retrieving dependencies.
 	}
 		modrinth {
-			debugMode = false
-
+			debugMode = true
 			token = System.getenv("MODRINTH_TOKEN")
 			projectId = "${project_id}"
 			versionNumber = "${mod_version}"
@@ -112,7 +111,7 @@ publishing {
 				embedded.project "fabric-api"
 				embedded.project "geckolib"
 			}
-		syncBodyFrom = rootProject.file("README.md").text
+			syncBodyFrom = rootProject.file("README.md").text
 		}
 //	}
 }
