@@ -49,10 +49,11 @@
 	"custom": {
 		"modmenu": {
 			"links": {
-				"modmenu.website": "mods.origamiking.net"
+				"modmenu.website": "https://mods.origamiking.net",
+				"modmenu.modrinth": "https://modrinth.com/mod/origamikings-api"
 			},
 			"badges": [ "library" ],
-			"update_checker": false
+			"update_checker": true
 		}
 	}
 }
