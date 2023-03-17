@@ -8,8 +8,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 
 import java.util.function.Consumer;
 
-public class ModRecipeProvider /* extends RecipeProvider extends FabricRecipeProvider*/ {
-//    public ModRecipeProvider(FabricDataOutput output) {super(output);}
+public class ModRecipeProvider  {
     public static ShapelessRecipeJsonBuilder createButtonRecipe(RecipeCategory category, ItemConvertible output, Ingredient input) {
         return ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input(input);
     }
@@ -52,7 +51,4 @@ public class ModRecipeProvider /* extends RecipeProvider extends FabricRecipePro
     public static void offerWaxableRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
         createWaxable(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
-
-//    @Override
-//    public void generate(Consumer<RecipeJsonProvider> exporter) {}
 }

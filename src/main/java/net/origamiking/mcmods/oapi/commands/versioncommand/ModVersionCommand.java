@@ -8,9 +8,9 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 public class ModVersionCommand {
     public static void getVersionCommand() {
-        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("origamikings-api-version")
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal(OrigamiKingsApi.MOD_ID + "-version")
                 .executes(context -> {
-                    context.getSource().sendMessage(Text.of(OrigamiKingsApi.VERSION)/*Text.literal("Called /oem with no arguments")*/);
+                    context.getSource().sendMessage(Text.of(OrigamiKingsApi.VERSION));
                     return 1;
                 })));
     }
