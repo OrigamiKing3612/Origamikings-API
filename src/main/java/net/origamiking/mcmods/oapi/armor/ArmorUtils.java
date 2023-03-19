@@ -1,6 +1,5 @@
 package net.origamiking.mcmods.oapi.armor;
 
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
