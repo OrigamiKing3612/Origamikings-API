@@ -99,13 +99,14 @@ publishing {
 		// retrieving dependencies.
 	}
 		modrinth {
-			debugMode = true
+			debugMode = false
 			token = System.getenv("MODRINTH_TOKEN")
 			projectId = "${project_id}"
 			versionNumber = "${mod_version}"
 			versionType = "release"
 			uploadFile = remapJar
 			gameVersions = ['1.19.4'] // Must be an array, even with only one version
+			changelog = "Added some more things"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
