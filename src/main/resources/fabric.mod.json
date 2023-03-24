@@ -25,6 +25,9 @@
 		],
 		"client": [
 			"net.origamiking.mcmods.oapi.OrigamiKingsApiClient"
+		],
+		"server": [
+			"net.origamiking.mcmods.oapi.OrigamiKingsApiServer"
 		]
 	},
 	"mixins": [
