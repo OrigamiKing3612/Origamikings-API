@@ -103,15 +103,14 @@ publishing {
 			token = System.getenv("MODRINTH_TOKEN")
 			projectId = "${project_id}"
 			versionNumber = "${mod_version}"
-			versionType = "beta"
+			versionType = "release"
 			uploadFile = remapJar
-			gameVersions = ['1.19.4'] // Must be an array, even with only one version
-			changelog = "Added some more things for me to use."
+			gameVersions = ['1.19.2'] // Must be an array, even with only one version
+			changelog = "Downgraded to 1.19.2"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
 				embedded.project "geckolib"
 			}
-			syncBodyFrom = rootProject.file("README.md").text
 		}
 }
