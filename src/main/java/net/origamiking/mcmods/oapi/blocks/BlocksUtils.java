@@ -3,9 +3,8 @@ package net.origamiking.mcmods.oapi.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class BlocksUtils {
     /**
@@ -13,10 +12,10 @@ public class BlocksUtils {
      */
 
     private static Item registerBlockItem(String id, String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new Item.Settings()));
+        return Registry.register(Registry.ITEM, new Identifier(id, name), new BlockItem(block, new Item.Settings()));
     }
     public static Block registerBlock(String id, String name, Block block) {
         registerBlockItem(id, name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
+        return Registry.register(Registry.BLOCK, new Identifier(id, name), block);
     }
 }

@@ -5,7 +5,6 @@ import net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
-import net.minecraft.resource.featuretoggle.FeatureFlag;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -220,18 +219,6 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     @Override
     public OrigamiBlockSettings dropsNothing() {
         super.dropsNothing();
-        return this;
-    }
-
-    @Override
-    public OrigamiBlockSettings noBlockBreakParticles() {
-        super.noBlockBreakParticles();
-        return this;
-    }
-
-    @Override
-    public OrigamiBlockSettings requires(FeatureFlag... features) {
-        super.requires(features);
         return this;
     }
 

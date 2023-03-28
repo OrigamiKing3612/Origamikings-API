@@ -1,9 +1,8 @@
 package net.origamiking.mcmods.oapi.armor;
 
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ArmorUtils {
     /**To use
@@ -11,6 +10,6 @@ public class ArmorUtils {
      */
 
     public static Item registerArmor(String id, String name, Item armor) {
-        return Registry.register(Registries.ITEM, new Identifier(id, name), armor);
+        return Registry.register(Registry.ITEM, new Identifier(id, name), armor);
     }
 }
