@@ -105,8 +105,8 @@ publishing {
 			versionNumber = "${mod_version}"
 			versionType = "release"
 			uploadFile = remapJar
-			gameVersions = ['1.19.2'] // Must be an array, even with only one version
-			changelog = "Downgraded to 1.19.2"
+			gameVersions = ['1.18.2'] // Must be an array, even with only one version
+			changelog = "Downgraded to 1.18.2"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
