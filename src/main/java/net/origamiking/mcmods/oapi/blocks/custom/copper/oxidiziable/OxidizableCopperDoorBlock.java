@@ -4,8 +4,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Oxidizable;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.world.gen.random.AbstractRandom;
 import net.origamiking.mcmods.oapi.blocks.custom.copper.normal.CopperDoorBlock;
+
+import java.util.Random;
 
 public class OxidizableCopperDoorBlock extends CopperDoorBlock implements Oxidizable {
     public OxidizableCopperDoorBlock(OxidationLevel oxidizationLevel, Settings settings) {
