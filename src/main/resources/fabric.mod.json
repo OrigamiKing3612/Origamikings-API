@@ -31,7 +31,8 @@
 		]
 	},
 	"mixins": [
-		"origamikings-api.mixins.json"
+		"origamikings-api.mixins.json",
+		"boats.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.17",

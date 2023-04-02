@@ -1,32 +1,35 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl.entity;
+
+import java.util.Optional;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.ChestBoatEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.impl.OrigamiBoatInitializer;
+import net.origamiking.mcmods.oapi.entity.boat.impl.OrigamiBoatTrackedData;
 
-import java.util.Optional;
 /**
- * A {@linkplain ChestBoatEntity chest boat entity} that stores a {@linkplain OrigamiBoatType Origami boat type}.
+ * A {@linkplain BoatEntity boat entity} that stores a {@linkplain OrigamiBoatType Origami boat type}.
  */
-public class OrigamiChestBoatEntity extends ChestBoatEntity implements OrigamiBoatHolder {
-    private static final TrackedData<Optional<OrigamiBoatType>> ORIGAMI_BOAT = DataTracker.registerData(OrigamiChestBoatEntity.class, OrigamiBoatTrackedData.HANDLER);
+public class OrigamiBoatEntity extends BoatEntity implements OrigamiBoatHolder {
+    private static final TrackedData<Optional<OrigamiBoatType>> ORIGAMI_BOAT = DataTracker.registerData(OrigamiBoatEntity.class, OrigamiBoatTrackedData.HANDLER);
 
-    public OrigamiChestBoatEntity(EntityType<? extends OrigamiChestBoatEntity> type, World world) {
+    public OrigamiBoatEntity(EntityType<? extends OrigamiBoatEntity> type, World world) {
         super(type, world);
     }
 
-    public OrigamiChestBoatEntity(World world) {
-        this(OrigamiBoatInitializer.CHEST_BOAT, world);
+    public OrigamiBoatEntity(World world) {
+        this(OrigamiBoatInitializer.BOAT, world);
     }
 
-    public OrigamiChestBoatEntity(World world, double x, double y, double z) {
-        this(OrigamiBoatInitializer.CHEST_BOAT, world);
+    public OrigamiBoatEntity(World world, double x, double y, double z) {
+        this(OrigamiBoatInitializer.BOAT, world);
 
         this.setPosition(x, y, z);
         this.prevX = x;
@@ -46,12 +49,12 @@ public class OrigamiChestBoatEntity extends ChestBoatEntity implements OrigamiBo
 
     @Override
     protected Text getDefaultName() {
-        return EntityType.CHEST_BOAT.getName();
+        return EntityType.BOAT.getName();
     }
 
     @Override
     public Item asItem() {
-        return this.getOrigamiBoat().getChestItem();
+        return this.getOrigamiBoat().getItem();
     }
 
     @Override

@@ -1,8 +1,10 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl.entity;
 
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
 
 public interface OrigamiBoatHolder {
     static final String BOAT_KEY = "OrigamiBoat";

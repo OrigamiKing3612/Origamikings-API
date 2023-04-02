@@ -1,8 +1,10 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl;
 
 import net.minecraft.entity.data.TrackedDataHandler;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.network.PacketByteBuf;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
 
 import java.util.Optional;
 

@@ -1,6 +1,7 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl;
 
 import net.minecraft.item.Item;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
 
 public class OrigamiBoatTypeImpl implements OrigamiBoatType {
 

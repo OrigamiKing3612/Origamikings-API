@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -9,6 +9,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.origamiking.mcmods.oapi.OrigamiKingsApi;
+import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiBoatEntity;
+import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiChestBoatEntity;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
 
 public final class OrigamiBoatInitializer implements ModInitializer {
     private static final EntityDimensions DIMENSIONS = EntityDimensions.fixed(1.375f, 0.5625f);

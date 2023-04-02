@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.entity.boat;
+package net.origamiking.mcmods.oapi.entity.boat.impl.item;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -20,6 +20,10 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
+import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiBoatEntity;
+import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiChestBoatEntity;
 
 /**
  * An {@linkplain Item item} that spawns a {@linkplain OrigamiBoatEntity boat entity} with a given {@linkplain OrigamiBoatType Origami boat type}.

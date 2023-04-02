@@ -16,9 +16,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.origamiking.mcmods.oapi.blocks.OrigamiBlockSettings;
-import net.origamiking.mcmods.oapi.entity.boat.OrigamiBoatItem;
-import net.origamiking.mcmods.oapi.entity.boat.OrigamiBoatType;
-import net.origamiking.mcmods.oapi.entity.boat.OrigamiBoatTypeRegistry;
+import net.origamiking.mcmods.oapi.entity.boat.impl.item.OrigamiBoatItem;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
+import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
 import net.origamiking.mcmods.oapi.items.OrigamiItemSettings;
 
 public class OrigamiFactories {
@@ -233,18 +233,12 @@ public class OrigamiFactories {
         if(raft) builder.raft();
         return builder.build();
     }
-
     public static OrigamiBoatType boat(Identifier id, ItemConvertible planks) {
         return boat(id, planks, false);
     }
-
     public static OrigamiBoatType raft(Identifier id, ItemConvertible planks) {
         return boat(id, planks, true);
     }
-
-
-
-
     // Random Stuff
     public static SpawnEggItem spawnEgg(EntityType<? extends MobEntity> entity, int primaryColor, int secondaryColor) {
         return new SpawnEggItem(entity, primaryColor, secondaryColor, new OrigamiItemSettings());

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.origamiking.mcmods.oapi.entity.boat.impl.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "MixinBoatEntity"
+  ],
+  "client": [
+    "MixinBoatEntityRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "origamikingsapi-refmap.json"
+}
