@@ -50,6 +50,10 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     public Block getStripInto() {
         return stripInto;
     }
+    @Nullable
+    public Item.Settings getItemSettings() {
+        return itemSettings;
+    }
 
     public static OrigamiBlockSettings of(Material material) {
         return of(material, material.getColor());
@@ -78,6 +82,8 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     public static OrigamiBlockSettings copyOf(AbstractBlock.Settings settings) {
         return new OrigamiBlockSettings(settings);
     }
+
+    //new stuff
     /**
      * Burning and spreading chances of a block.
      *
@@ -97,7 +103,24 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         this.stripInto = block;
         return this;
     }
+    /**
+     * Provides item settings for a {@code BlockItem} to be registered with this block.
+     * <p>The item will be registered with the same identifier as the block.
+     */
+    public OrigamiBlockSettings item(Item.Settings itemSettings) {
+        this.itemSettings = itemSettings;
+        return this;
+    }
 
+    /**
+     * Provides empty item settings for a {@code BlockItem} to be registered with this block.
+     * <p>The item will be registered with the same identifier as the block.
+     */
+    public OrigamiBlockSettings item() {
+        return item(new Item.Settings());
+    }
+
+    // overrides
     @Override
     public OrigamiBlockSettings noCollision() {
         super.noCollision();
