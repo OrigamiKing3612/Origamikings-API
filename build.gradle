@@ -106,7 +106,7 @@ publishing {
 			versionType = "release"
 			uploadFile = remapJar
 			gameVersions = ['1.19.4'] // Must be an array, even with only one version
-			changelog = "Added Boat API and OrigamiFactories. Now works for ≥1.20"
+			changelog = "Fixed a mojor bug"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
