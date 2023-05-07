@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.entity.boat.impl.mixin;
+package net.origamiking.mcmods.oapi.mixin;
 
 import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
 import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiBoatHolder;

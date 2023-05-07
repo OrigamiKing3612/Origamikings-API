@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.entity.boat.impl.mixin;
+package net.origamiking.mcmods.oapi.mixin;
 
 import java.util.Map;
 import com.mojang.datafixers.util.Pair;
