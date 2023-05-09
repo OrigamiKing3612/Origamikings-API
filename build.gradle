@@ -82,7 +82,19 @@ jar {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
+jar {
+	manifest {
+		attributes([
+				"Specification-Title"     : "OrigamiKings API",
+				"Specification-Vendor"    : "OrigamiKing3612",
+				"Specification-Version"   : "1",
+				"Implementation-Title"    : project.name,
+				"Implementation-Version"  : mod_version,
+				"Implementation-Vendor"   : "OrigamiKing3612",
+				"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+		])
+	}
+}
 // configure the maven publication
 publishing {
 	publications {
@@ -106,7 +118,7 @@ publishing {
 			versionType = "release"
 			uploadFile = remapJar
 			gameVersions = ['1.19.4'] // Must be an array, even with only one version
-			changelog = "Fixed a mojor bug"
+			changelog = "Just doing some updates and addind some more things"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"

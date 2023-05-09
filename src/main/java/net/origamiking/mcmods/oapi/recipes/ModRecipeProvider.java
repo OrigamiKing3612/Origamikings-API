@@ -58,4 +58,21 @@ public class ModRecipeProvider  {
     public static void offerLanternRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
         createLantern(category, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
+    private static CraftingRecipeJsonBuilder createCommpress3x3(RecipeCategory category, ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input('#', input).pattern("###").pattern("###").pattern("###");
+    }
+    private static CraftingRecipeJsonBuilder createCommpress2x2(RecipeCategory category, ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input('#', input).pattern("##").pattern("##");
+    }
+    private static ShapelessRecipeJsonBuilder createUncommpress(RecipeCategory category, ItemConvertible output, Ingredient input, int count) {
+        return ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, count).input(input);
+    }
+    public static void offer3x3CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input, int count) {
+        createCommpress3x3(category, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+        createUncommpress(category, input, Ingredient.ofItems(output), count).criterion(RecipeProvider.hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
+    }
+    public static void offer2x2CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input, int count) {
+        createCommpress2x2(category, output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+        createUncommpress(category, input, Ingredient.ofItems(output), count).criterion(RecipeProvider.hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
+    }
 }
