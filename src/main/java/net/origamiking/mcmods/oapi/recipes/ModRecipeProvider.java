@@ -69,12 +69,12 @@ public class ModRecipeProvider {
     private static ShapelessRecipeJsonBuilder createUncommpress(RecipeCategory category, ItemConvertible output, Ingredient input, int count) {
         return ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, count).input(input);
     }
-    public static void offer3x3CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input, int count) {
+    public static void offer3x3CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
         createCommpress3x3(category, output, Ingredient.ofItems(input)).criterion(hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
-        createUncommpress(category, input, Ingredient.ofItems(output), count).criterion(hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
+        createUncommpress(category, input, Ingredient.ofItems(output), 9).criterion(hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
     }
-    public static void offer2x2CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input, int count) {
+    public static void offer2x2CommpressandUncommpress(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
         createCommpress2x2(category, output, Ingredient.ofItems(input)).criterion(hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
-        createUncommpress(category, input, Ingredient.ofItems(output), count).criterion(hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
+        createUncommpress(category, input, Ingredient.ofItems(output), 4).criterion(hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
     }
 }
