@@ -118,7 +118,7 @@ publishing {
 			versionType = "release"
 			uploadFile = remapJar
 			gameVersions = ['1.19.4'] // Must be an array, even with only one version
-			changelog = "Just doing some updates and addind some more things"
+			changelog = "Just doing some updates and adding some more things"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
