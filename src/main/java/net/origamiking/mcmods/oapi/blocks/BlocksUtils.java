@@ -11,7 +11,6 @@ public class BlocksUtils {
     /**
      * How to use. Just extend and use the methods or import `import static net.origamiking.mcmods.oapi.blocks.BlocksUtils.registerBlock;`and use the methods
      */
-
     public static Item registerBlockItem(String id, String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new Item.Settings()));
     }
