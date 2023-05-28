@@ -37,7 +37,7 @@ public class OrigamiBoatItem extends Item {
     /**
      * @param boatKey a {@linkplain RegistryKey registry key} for the {@linkplain OrigamiBoatType Origami boat type} that should be spawned by this item
      */
-    public OrigamiBoatItem(RegistryKey<OrigamiBoatType> boatKey, boolean chest, Item.Settings settings) {
+    public OrigamiBoatItem(RegistryKey<OrigamiBoatType> boatKey, boolean chest, Settings settings) {
         super(settings);
 
         this.boatKey = boatKey;

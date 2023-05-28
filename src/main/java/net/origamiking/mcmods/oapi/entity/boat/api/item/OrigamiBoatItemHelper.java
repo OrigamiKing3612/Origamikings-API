@@ -13,7 +13,7 @@ import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
 import net.origamiking.mcmods.oapi.entity.boat.impl.entity.OrigamiBoatEntity;
 
 /**
- * This class provides utilities for the {@linkplain OrigamiBoatItem item forms} of {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType Origami boats},
+ * This class provides utilities for the {@linkplain OrigamiBoatItem item forms} of {@linkplain OrigamiBoatType Origami boats},
  * such as {@linkplain #registerBoatItem(Identifier, RegistryKey, boolean, Item.Settings) registering them and their dispenser behavior}.
  */
 public final class OrigamiBoatItemHelper {
@@ -38,7 +38,7 @@ public final class OrigamiBoatItemHelper {
      * @see #registerBoatItem(Identifier, RegistryKey, boolean, Item.Settings) Helper that allows specifying a custom item settings
      *
      * @param id the {@linkplain Identifier identifier} to register the item with
-     * @param boatKey a {@linkplain RegistryKey registry key} for the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType Origami boat type} that should be spawned by this item and dispenser behavior
+     * @param boatKey a {@linkplain RegistryKey registry key} for the {@linkplain OrigamiBoatType Origami boat type} that should be spawned by this item and dispenser behavior
      * @param chest whether the boat contains a chest
      */
     public static Item registerBoatItem(Identifier id, RegistryKey<OrigamiBoatType> boatKey, boolean chest) {

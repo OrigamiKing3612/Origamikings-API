@@ -14,7 +14,7 @@ public class OrigamiEnchantment extends Enchantment {
     public int effectLevel;
     public StatusEffect statusEffect;
 
-    public OrigamiEnchantment(Enchantment.Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot equipmentSlot, int minpower, int maxLevel, int effectLevel, StatusEffect statusEffect) {
+    public OrigamiEnchantment(Rarity rarity, EnchantmentTarget enchantmentTarget, EquipmentSlot equipmentSlot, int minpower, int maxLevel, int effectLevel, StatusEffect statusEffect) {
         super(rarity, enchantmentTarget, new EquipmentSlot[]{equipmentSlot});
         this.minPower = minpower;
         this.maxLevel = maxLevel;
