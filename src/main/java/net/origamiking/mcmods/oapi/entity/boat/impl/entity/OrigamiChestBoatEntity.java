@@ -72,12 +72,12 @@ public class OrigamiChestBoatEntity extends ChestBoatEntity implements OrigamiBo
     }
 
     @Override
-    public void setVariant(BoatEntity.Type type) {
+    public void setVariant(Type type) {
         return;
     }
 
     @Override
-    public BoatEntity.Type getVariant() {
+    public Type getVariant() {
         return this.getImpersonatedBoatType();
     }
 

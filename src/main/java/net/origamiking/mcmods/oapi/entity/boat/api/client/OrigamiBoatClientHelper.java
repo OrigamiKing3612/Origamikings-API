@@ -22,7 +22,7 @@ public final class OrigamiBoatClientHelper {
 
     /**
      * Gets the identifier of a {@linkplain EntityModelLayer model layer} for a boat of a given type.
-     * @param boatId the {@linkplain net.minecraft.util.Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
+     * @param boatId the {@linkplain Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
      * @param raft whether the boat is a raft
      * @param chest whether the boat contains a chest
      */
@@ -33,7 +33,7 @@ public final class OrigamiBoatClientHelper {
 
     /**
      * Creates a {@linkplain EntityModelLayer model layer} for a boat of a given type.
-     * @param boatId the {@linkplain net.minecraft.util.Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
+     * @param boatId the {@linkplain Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
      * @param raft whether the boat is a raft
      * @param chest whether the boat contains a chest
      *
@@ -55,7 +55,7 @@ public final class OrigamiBoatClientHelper {
 
     /**
      * Registers a {@linkplain EntityModelLayer model layer} for a boat of a given type.
-     * @param boatId the {@linkplain net.minecraft.util.Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
+     * @param boatId the {@linkplain Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat}
      * @param raft whether the boat is a raft
      * @param chest whether the boat contains a chest
      *
@@ -69,7 +69,7 @@ public final class OrigamiBoatClientHelper {
 
     /**
      * Registers {@linkplain EntityModelLayer model layers} for a given boat type.
-     * @param boatId the {@linkplain net.minecraft.util.Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat type}
+     * @param boatId the {@linkplain Identifier identifier} of the {@linkplain net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType boat type}
      * @param raft whether the boat is a raft
      *
      * <pre>{@code

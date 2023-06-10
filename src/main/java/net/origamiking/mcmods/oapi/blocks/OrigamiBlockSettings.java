@@ -2,6 +2,7 @@ package net.origamiking.mcmods.oapi.blocks;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor;
+import net.fabricmc.fabric.mixin.object.builder.AbstractBlockSettingsAccessor;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -15,8 +16,8 @@ import java.util.function.ToIntFunction;
 /**
  * My version of {@code Block.Settings}. This adds more stuff then the {@code FabricBlockSettings}
  *
- * <p>To use this, replace {@code Block.Settings.of()} or {@code FabricBlockSettings.of()} with
- * {@code OrigamiBlockSettings.of()}.
+ * <p>To use this, replace {@code Block.Settings.create()} or {@code FabricBlockSettings.create()} with
+ * {@code OrigamiBlockSettings.create()}.
  */
 
 public class OrigamiBlockSettings extends FabricBlockSettings {
@@ -26,17 +27,55 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     private Block stripInto;
     @Nullable
     private Item.Settings itemSettings;
-    protected OrigamiBlockSettings(Material material, MapColor color) {
-        super(material, color);
+//    protected OrigamiBlockSettings(Material material, MapColor color) {
+//        super(material, color);
+//    }
+//    protected OrigamiBlockSettings(AbstractBlock.Settings settings) {
+//        super(settings);
+//        if(settings instanceof OrigamiBlockSettings origamiBlockSettings) {
+//            this.flameBurn = origamiBlockSettings.flameBurn;
+//            this.flameSpread = origamiBlockSettings.flameSpread;
+//            this.stripInto = origamiBlockSettings.stripInto;
+//            this.itemSettings = origamiBlockSettings.itemSettings;
+//        }
+//    }
+    public OrigamiBlockSettings() {
+        super();
     }
-    protected OrigamiBlockSettings(AbstractBlock.Settings settings) {
-        super(settings);
-        if(settings instanceof OrigamiBlockSettings origamiBlockSettings) {
-            this.flameBurn = origamiBlockSettings.flameBurn;
-            this.flameSpread = origamiBlockSettings.flameSpread;
-            this.stripInto = origamiBlockSettings.stripInto;
-            this.itemSettings = origamiBlockSettings.itemSettings;
-        }
+    public OrigamiBlockSettings(AbstractBlock.Settings settings) {
+        this();
+        // Mostly Copied from vanilla's copy method
+        // Note: If new methods are added to Block settings, an accessor must be added here
+        AbstractBlockSettingsAccessor thisAccessor = (AbstractBlockSettingsAccessor) this;
+        AbstractBlockSettingsAccessor otherAccessor = (AbstractBlockSettingsAccessor) settings;
+
+        // Copied in vanilla: sorted by vanilla copy order
+        this.hardness(otherAccessor.getHardness());
+        this.resistance(otherAccessor.getResistance());
+        this.collidable(otherAccessor.getCollidable());
+        thisAccessor.setRandomTicks(otherAccessor.getRandomTicks());
+        this.luminance(otherAccessor.getLuminance());
+        thisAccessor.setMapColorProvider(otherAccessor.getMapColorProvider());
+        this.sounds(otherAccessor.getSoundGroup());
+        this.slipperiness(otherAccessor.getSlipperiness());
+        this.velocityMultiplier(otherAccessor.getVelocityMultiplier());
+        thisAccessor.setDynamicBounds(otherAccessor.getDynamicBounds());
+        thisAccessor.setOpaque(otherAccessor.getOpaque());
+        thisAccessor.setIsAir(otherAccessor.getIsAir());
+        thisAccessor.setToolRequired(otherAccessor.isToolRequired());
+        thisAccessor.setOffsetter(otherAccessor.getOffsetter());
+        thisAccessor.setBlockBreakParticles(otherAccessor.getBlockBreakParticles());
+        thisAccessor.setRequiredFeatures(otherAccessor.getRequiredFeatures());
+
+        // Not copied in vanilla: field definition order
+        this.jumpVelocityMultiplier(otherAccessor.getJumpVelocityMultiplier());
+        this.drops(otherAccessor.getLootTableId());
+        this.allowsSpawning(otherAccessor.getAllowsSpawningPredicate());
+        this.solidBlock(otherAccessor.getSolidBlockPredicate());
+        this.suffocates(otherAccessor.getSuffocationPredicate());
+        this.blockVision(otherAccessor.getBlockVisionPredicate());
+        this.postProcess(otherAccessor.getPostProcessPredicate());
+        this.emissiveLighting(otherAccessor.getEmissiveLightingPredicate());
     }
     public int getFlameBurn() {
         return flameBurn;
@@ -55,22 +94,24 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         return itemSettings;
     }
 
-    public static OrigamiBlockSettings of(Material material) {
-        return of(material, material.getColor());
+//    public static OrigamiBlockSettings of(Material material) {
+//        return of(material, material.getColor());
+//    }
+//
+//    public static OrigamiBlockSettings of(Material material, MapColor color) {
+//        return new OrigamiBlockSettings(material, color);
+//    }
+//
+//    public static OrigamiBlockSettings of(Material material, DyeColor color) {
+//        return new OrigamiBlockSettings(material, color.getMapColor());
+//    }
+//
+//    public static OrigamiBlockSettings of(Material material, Function<BlockState, MapColor> mapColor) {
+//        return new OrigamiBlockSettings(AbstractBlock.Settings.of(material, mapColor));
+//    }
+    public static OrigamiBlockSettings create() {
+        return new OrigamiBlockSettings();
     }
-
-    public static OrigamiBlockSettings of(Material material, MapColor color) {
-        return new OrigamiBlockSettings(material, color);
-    }
-
-    public static OrigamiBlockSettings of(Material material, DyeColor color) {
-        return new OrigamiBlockSettings(material, color.getMapColor());
-    }
-
-    public static OrigamiBlockSettings of(Material material, Function<BlockState, MapColor> mapColor) {
-        return new OrigamiBlockSettings(AbstractBlock.Settings.of(material, mapColor));
-    }
-
     public static OrigamiBlockSettings copy(AbstractBlock block) {
         return new OrigamiBlockSettings(((AbstractBlockAccessor) block).getSettings());
     }
