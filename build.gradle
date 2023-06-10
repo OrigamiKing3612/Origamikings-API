@@ -117,9 +117,9 @@ publishing {
 			token = System.getenv("MODRINTH_TOKEN")
 			projectId = "${project_id}"
 			versionNumber = "${mod_version}"
-			versionType = "alpha"
+			versionType = "release"
 			uploadFile = remapJar
-			gameVersions = ['1.19.4'] // Must be an array, even with only one version
+			gameVersions = ['1.20'] // Must be an array, even with only one version
 			changelog = "1.20"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
@@ -135,7 +135,7 @@ publishing {
 			releaseType = "release"
 			changelogType = 'text'
 //			changelog = file('changelog.txt')
-			addGameVersion("1.19.4")
+			addGameVersion("1.20")
 			addGameVersion("Fabric")
 			addGameVersion("Java 17")
 
