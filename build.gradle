@@ -119,8 +119,8 @@ publishing {
 			versionNumber = "${mod_version}"
 			versionType = "release"
 			uploadFile = remapJar
-			gameVersions = ['1.20'] // Must be an array, even with only one version
-			changelog = "1.20"
+			gameVersions = ['1.20.1'] // Must be an array, even with only one version
+			changelog = "1.20.1"
 			dependencies {
 				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 				embedded.project "fabric-api"
@@ -135,7 +135,7 @@ publishing {
 			releaseType = "release"
 			changelogType = 'text'
 //			changelog = file('changelog.txt')
-			addGameVersion("1.20")
+			addGameVersion("1.20.1")
 			addGameVersion("Fabric")
 			addGameVersion("Java 17")
 
