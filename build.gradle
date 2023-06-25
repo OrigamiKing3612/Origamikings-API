@@ -73,9 +73,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
 
@@ -87,12 +84,12 @@ jar {
 jar {
 	manifest {
 		attributes([
-				"Specification-Title"     : "OrigamiKings API",
-				"Specification-Vendor"    : "OrigamiKing3612",
-				"Specification-Version"   : "1",
-				"Implementation-Title"    : project.name,
-				"Implementation-Version"  : mod_version,
-				"Implementation-Vendor"   : "OrigamiKing3612",
+				"Specification-Title": "OrigamiKings API",
+				"Specification-Vendor": "OrigamiKing3612",
+				"Specification-Version": "1",
+				"Implementation-Title": project.name,
+				"Implementation-Version": mod_version,
+				"Implementation-Vendor": "OrigamiKing3612",
 				"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
 		])
 	}
@@ -105,52 +102,54 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
-		modrinth {
-			debugMode = false
-			token = System.getenv("MODRINTH_TOKEN")
-			projectId = "${project_id}"
-			versionNumber = "${mod_version}"
-			versionType = "release"
-			uploadFile = remapJar
-			gameVersions = ['1.20.1'] // Must be an array, even with only one version
-			changelog = "1.20.1"
-			dependencies {
-				// The scope can be `required`, `optional`, `incompatible`, or `embedded`
-				embedded.project "fabric-api"
-				embedded.project "geckolib"
+		maven {
+			name = "cloudsmith"
+			url = "https://maven.cloudsmith.io/origamiking3612/origamikings-api/"
+			credentials {
+				username = System.getenv("CLOUDSMITH_USERNAME")
+				password = System.getenv("CLOUDSMITH_PASSWORD")
 			}
-			syncBodyFrom = rootProject.file("README.md").text
 		}
-	curseforge {
-		project {
-			apiKey = System.getenv("CURSEFORGE_TOKEN")
-			id = "860033"
-			releaseType = "release"
-			changelogType = 'text'
+	}
+}
+modrinth {
+	debugMode = false
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = "${project_id}"
+	versionNumber = "${mod_version}"
+	versionType = "release"
+	uploadFile = remapJar
+	gameVersions = ['1.20.1'] // Must be an array, even with only one version
+	changelog = "1.20.1"
+	dependencies {
+		// The scope can be `required`, `optional`, `incompatible`, or `embedded`
+		embedded.project "fabric-api"
+		embedded.project "geckolib"
+	}
+}
+curseforge {
+	project {
+		apiKey = System.getenv("CURSEFORGE_TOKEN")
+		id = "860033"
+		releaseType = "release"
+		changelogType = 'text'
 //			changelog = file('changelog.txt')
-			addGameVersion("1.20.1")
-			addGameVersion("Fabric")
-			addGameVersion("Java 17")
+		addGameVersion("1.20.1")
+		addGameVersion("Fabric")
+		addGameVersion("Java 17")
 
 //			relations {
 //				requiredDependency 'fabric-api'
 //			}
-			mainArtifact(remapJar)
+		mainArtifact(remapJar)
 
-			afterEvaluate {
-				uploadTask.dependsOn("remapJar")
-			}
+		afterEvaluate {
+			uploadTask.dependsOn("remapJar")
 		}
-		options {
+	}
+	options {
 //			debug = true
-			forgeGradleIntegration = false
-		}
+		forgeGradleIntegration = false
 	}
 }
