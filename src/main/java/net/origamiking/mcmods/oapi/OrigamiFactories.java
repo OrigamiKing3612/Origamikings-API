@@ -61,36 +61,35 @@ public class OrigamiFactories {
         return TagKey.of(RegistryKeys.FLUID, id);
     }
 
-//    public static Block planks(boolean isNether, MapColor color) {
-//        return new Block(OrigamiFactories.planksSettings(isNether, color));
-//    }
-//
-//    public static OrigamiBlockSettings planksSettings(boolean isNether, MapColor color) {
-//        OrigamiBlockSettings settings = OrigamiBlockSettings.of(isNether ? Material.NETHER_WOOD : Material.WOOD, color)
-//                .item()
-//                .strength(2.0f, 3.0f)
-//                .sounds(isNether ? BlockSoundGroup.NETHER_WOOD : BlockSoundGroup.WOOD);
-//        if(isNether) settings.flammability(5, 20);
-//        return settings;
-//    }
-//
-//    public static OrigamiBlockSettings logSettings(boolean isNether, MapColor woodColor, MapColor barkColor) {
-//        OrigamiBlockSettings settings = OrigamiBlockSettings.of(isNether ? Material.NETHER_WOOD : Material.WOOD, (state) -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? woodColor : barkColor)
-//                .item()
-//                .strength(2.0F)
-//                .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
-//        if(isNether) settings.flammability(5, 5);
-//        return settings;
-//    }
-//
-//    public static OrigamiBlockSettings logSettings(boolean isNether, MapColor color) {
-//        OrigamiBlockSettings settings = OrigamiBlockSettings.of(isNether ? Material.NETHER_WOOD : Material.WOOD, color)
-//                .item()
-//                .strength(2.0F)
-//                .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
-//        if(isNether) settings.flammability(5, 5);
-//        return settings;
-//    }
+    public static Block planks(boolean isNether, MapColor color) {
+        return new Block(OrigamiFactories.planksSettings(isNether, color));
+    }
+
+    public static OrigamiBlockSettings planksSettings(boolean isNether, MapColor color) {
+        OrigamiBlockSettings settings = isNether ? OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.NETHER_WOOD).mapColor(color) : OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable().mapColor(color)
+                .item()
+                .sounds(isNether ? BlockSoundGroup.NETHER_WOOD : BlockSoundGroup.WOOD);
+        if(isNether) settings.flammability(5, 20);
+        return settings;
+    }
+
+    public static OrigamiBlockSettings logSettings(boolean isNether, MapColor woodColor, MapColor barkColor) {
+        OrigamiBlockSettings settings = isNether ? OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.NETHER_WOOD).mapColor(woodColor) : OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable().mapColor(woodColor)
+                .item()
+                .strength(2.0F)
+                .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
+        if(isNether) settings.flammability(5, 5);
+        return settings;
+    }
+
+    public static OrigamiBlockSettings logSettings(boolean isNether, MapColor color) {
+        OrigamiBlockSettings settings = isNether ? OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.NETHER_WOOD).mapColor(color) : OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable().mapColor(color)
+                .item()
+                .strength(2.0F)
+                .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
+        if(isNether) settings.flammability(5, 5);
+        return settings;
+    }
 
     public static StairsBlock stairs(Block baseBlock) {
         return new StairsBlock(baseBlock.getDefaultState(), OrigamiBlockSettings.copy(baseBlock));
@@ -111,18 +110,19 @@ public class OrigamiFactories {
         return pressurePlate(baseBlock, PressurePlateBlock.ActivationRule.MOBS, BlockSetType.OAK);
     }
 
-//    public static ButtonBlock woodenButton(boolean isNether, BlockSetType setType) {
-//        return new ButtonBlock(OrigamiBlockSettings.of(Material.DECORATION)
-//                .item()
-//                .strength(0.5f)
-//                .noCollision()
-//                .sounds(isNether ? BlockSoundGroup.NETHER_WOOD : BlockSoundGroup.WOOD),
-//                setType, 30, true);
-//    }
+    public static ButtonBlock woodenButton(boolean isNether, BlockSetType setType) {
+        return new ButtonBlock(OrigamiBlockSettings.create()
+                .item()
+                .pistonBehavior(PistonBehavior.DESTROY)
+                .strength(0.5f)
+                .noCollision()
+                .sounds(isNether ? BlockSoundGroup.NETHER_WOOD : BlockSoundGroup.WOOD),
+                setType, 30, true);
+    }
 
-//    public static ButtonBlock woodenButton(boolean isNether) {
-//        return woodenButton(isNether, BlockSetType.OAK);
-//    }
+    public static ButtonBlock woodenButton(boolean isNether) {
+        return woodenButton(isNether, BlockSetType.OAK);
+    }
 
     public static FenceBlock fence(boolean isNether, Block baseBlock) {
         OrigamiBlockSettings settings = OrigamiBlockSettings.copy(baseBlock).item(new OrigamiItemSettings().fuelTime(isNether ? 0 : 300));
@@ -168,57 +168,24 @@ public class OrigamiFactories {
         return new FlowerPotBlock(content, OrigamiBlockSettings.create().mapColor(MapColor.CLEAR).notSolid().breakInstantly().nonOpaque().luminance(content.getDefaultState().getLuminance()).pistonBehavior(PistonBehavior.DESTROY));
     }
 
-//    public static LeavesBlock leaves() {
-//        return leaves(BlockSoundGroup.GRASS);
-//    }
+    public static LeavesBlock leaves() {
+        return leaves(BlockSoundGroup.GRASS);
+    }
 
-//    public static LeavesBlock leaves(BlockSoundGroup soundGroup) {
-//        return new LeavesBlock(OrigamiBlockSettings.create().mapColor(MapColor.DARK_GREEN).burnable().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
-//                .item(new OrigamiItemSettings().compostingChance(0.3f))
-//                .strength(0.2f)
-//                .ticksRandomly()
-//                .sounds(soundGroup)
-//                .nonOpaque()
-//                .allowsSpawning((state, world, pos, type) -> type == EntityType.OCELOT || type == EntityType.PARROT)
-//                .suffocates((state, world, pos) -> false)
-//                .blockVision((state, world, pos) -> false)
-//                .flammability(30, 60));
-//    }
-// Comming soon
-//
-//    public static SignBlocks signs(Identifier texturePath, Block basePlanks) {
-//        var signTexture = Identifier.of(texturePath.getNamespace(), "entity/signs/" + texturePath.getPath());
-//        var hangingSignTexture = Identifier.of(texturePath.getNamespace(), "entity/signs/hanging/" + texturePath.getPath());
-//        var hangingSignGuiTexture = Identifier.of(texturePath.getNamespace(), "textures/gui/hanging_signs/" + texturePath.getPath());
-//
-//        var sign = new TerraformSignBlock(signTexture, signSettings(basePlanks));
-//        var wallSign = new TerraformWallSignBlock(signTexture, signSettings(basePlanks));
-//        var hangingSign = new TerraformHangingSignBlock(hangingSignTexture, hangingSignGuiTexture, hangingSignSettings(basePlanks));
-//        var wallHangingSign = new TerraformWallHangingSignBlock(hangingSignTexture, hangingSignGuiTexture, hangingSignSettings(basePlanks));
-//        var signItem = new SignItem(new OrigamiItemSettings().maxCount(16), sign, wallSign);
-//        var hangingSignItem = new HangingSignItem(hangingSign, wallHangingSign, new OrigamiItemSettings().maxCount(16).requires(FeatureFlags.UPDATE_1_20));
-//
-//        return new SignBlocks(sign, wallSign, hangingSign, wallHangingSign, signItem, hangingSignItem);
-//    }
-//
-//    public static OrigamiBlockSettings signSettings(Block basePlanks, boolean hanging) {
-//        var settings = OrigamiBlockSettings.of(basePlanks.getDefaultState().getMaterial(), basePlanks.getDefaultMapColor()).noCollision().strength(1.0F);
-//        if(hanging) {
-//            settings.sounds(BlockSoundGroup.HANGING_SIGN).requires(FeatureFlags.VANILLA);
-//        }
-//        else {
-//            settings.sounds(BlockSoundGroup.WOOD);
-//        }
-//        return settings;
-//    }
-//
-//    public static OrigamiBlockSettings signSettings(Block basePlanks) {
-//        return signSettings(basePlanks, false);
-//    }
-//
-//    public static OrigamiBlockSettings hangingSignSettings(Block basePlanks) {
-//        return signSettings(basePlanks, true);
-//    }
+    public static LeavesBlock leaves(BlockSoundGroup soundGroup) {
+        return new LeavesBlock(OrigamiBlockSettings.create()
+                .mapColor(MapColor.DARK_GREEN).burnable().nonOpaque()
+                .item(new OrigamiItemSettings().compostingChance(0.3f))
+                .pistonBehavior(PistonBehavior.DESTROY)
+                .strength(0.2f)
+                .ticksRandomly()
+                .sounds(soundGroup)
+                .nonOpaque()
+                .allowsSpawning((state, world, pos, type) -> type == EntityType.OCELOT || type == EntityType.PARROT)
+                .suffocates((state, world, pos) -> false)
+                .blockVision((state, world, pos) -> false)
+                .flammability(30, 60));
+    }
 
     public static OrigamiBoatType boat(Identifier id, ItemConvertible planks, boolean raft) {
         RegistryKey<OrigamiBoatType> key = OrigamiBoatTypeRegistry.createKey(id);

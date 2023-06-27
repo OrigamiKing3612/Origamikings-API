@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor;
 import net.fabricmc.fabric.mixin.object.builder.AbstractBlockSettingsAccessor;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.resource.featuretoggle.FeatureFlag;
@@ -135,7 +136,11 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         this.flameSpread = spread;
         return this;
     }
-
+    @Override
+    public OrigamiBlockSettings pistonBehavior(PistonBehavior pistonBehavior) {
+        super.pistonBehavior(pistonBehavior);
+        return this;
+    }
     /**
      * Sets the block that this block will be stripped into when using an axe.
      * @see net.minecraft.item.AxeItem Vanilla axe stripping values
@@ -171,6 +176,12 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     @Override
     public OrigamiBlockSettings nonOpaque() {
         super.nonOpaque();
+        return this;
+    }
+
+    @Override
+    public OrigamiBlockSettings burnable() {
+        super.burnable();
         return this;
     }
 
