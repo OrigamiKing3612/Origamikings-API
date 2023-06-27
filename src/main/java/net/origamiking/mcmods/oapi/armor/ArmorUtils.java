@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 
 public class ArmorUtils {
     /**To use
-     * <p>public static final Item EXAMPLE = ArmorUtils.registerArmor(id, "name", new ArmorItem(ARMOR_MATERIAL, ArmorItem.Type.ARMOR_TYPE, new Item.Settings()));</p>
+     * <p>public static final Item EXAMPLE = ArmorUtils.registerArmor(id, "name", new ArmorItem(ARMOR_MATERIAL, ArmorItem.Type.ARMOR_TYPE, new OrigamiItemSettings()));</p>
      */
 
     public static Item registerArmor(String id, String name, Item armor) {
