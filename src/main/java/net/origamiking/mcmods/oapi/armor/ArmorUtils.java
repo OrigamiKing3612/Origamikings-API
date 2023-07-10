@@ -9,8 +9,7 @@ public class ArmorUtils {
     /**To use
      * <p>public static final Item EXAMPLE = ArmorUtils.registerArmor(id, "name", new ArmorItem(ARMOR_MATERIAL, ArmorItem.Type.ARMOR_TYPE, new OrigamiItemSettings()));</p>
      */
-
-    public static Item registerArmor(String id, String name, Item armor) {
-        return Registry.register(Registries.ITEM, new Identifier(id, name), armor);
+    public static <I extends Item> I registerArmor(String id, String name, I item) {
+        return Registry.register(Registries.ITEM, new Identifier(id, name), item);
     }
 }

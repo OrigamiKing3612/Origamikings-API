@@ -46,8 +46,7 @@
 	],
 	"suggests": {
 		"oem": "*",
-		"orm": "*",
-		"instead": "*"
+		"orm": "*"
 	},
 	"custom": {
 		"modmenu": {

@@ -28,18 +28,6 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     private Block stripInto;
     @Nullable
     private Item.Settings itemSettings;
-//    protected OrigamiBlockSettings(Material material, MapColor color) {
-//        super(material, color);
-//    }
-//    protected OrigamiBlockSettings(AbstractBlock.Settings settings) {
-//        super(settings);
-//        if(settings instanceof OrigamiBlockSettings origamiBlockSettings) {
-//            this.flameBurn = origamiBlockSettings.flameBurn;
-//            this.flameSpread = origamiBlockSettings.flameSpread;
-//            this.stripInto = origamiBlockSettings.stripInto;
-//            this.itemSettings = origamiBlockSettings.itemSettings;
-//        }
-//    }
     public OrigamiBlockSettings() {
         super();
     }
@@ -95,21 +83,6 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         return itemSettings;
     }
 
-//    public static OrigamiBlockSettings of(Material material) {
-//        return of(material, material.getColor());
-//    }
-//
-//    public static OrigamiBlockSettings of(Material material, MapColor color) {
-//        return new OrigamiBlockSettings(material, color);
-//    }
-//
-//    public static OrigamiBlockSettings of(Material material, DyeColor color) {
-//        return new OrigamiBlockSettings(material, color.getMapColor());
-//    }
-//
-//    public static OrigamiBlockSettings of(Material material, Function<BlockState, MapColor> mapColor) {
-//        return new OrigamiBlockSettings(AbstractBlock.Settings.of(material, mapColor));
-//    }
     public static OrigamiBlockSettings create() {
         return new OrigamiBlockSettings();
     }
