@@ -121,7 +121,7 @@ modrinth {
 	versionType = "release"
 	uploadFile = remapJar
 	gameVersions = ['1.20.1'] // Must be an array, even with only one version
-	changelog = "Changed some stuff"
+	changelog = "Added new recipeProviders"
 	dependencies {
 		// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 		embedded.project "fabric-api"

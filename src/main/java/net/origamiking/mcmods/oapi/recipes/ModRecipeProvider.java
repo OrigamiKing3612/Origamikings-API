@@ -77,4 +77,28 @@ public class ModRecipeProvider {
         createCommpress2x2(category, output, Ingredient.ofItems(input)).criterion(hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
         createUncommpress(category, input, Ingredient.ofItems(output), 4).criterion(hasItem(output), RecipeProvider.conditionsFromItem(output)).offerTo(exporter);
     }
+    private static CraftingRecipeJsonBuilder createCommpress2x2(ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input('#', input).pattern("##").pattern("##");
+    }
+    public static void offer2x2Commpress(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createCommpress2x2(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+    private static CraftingRecipeJsonBuilder createCommpress3x3(ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 1).input('#', input).pattern("###").pattern("###").pattern("###");
+    }
+    public static void offer3x3Commpress(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createCommpress3x3(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+    public static void offerStair(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createStair(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+    public static void offerSlab(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createSlab(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+    private static CraftingRecipeJsonBuilder createStair(ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4).input('I', input).pattern("I  ").pattern("II ").pattern("III");
+    }
+    private static CraftingRecipeJsonBuilder createSlab(ItemConvertible output, Ingredient input) {
+        return ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 6).input('I', input).pattern("III");
+    }
 }
