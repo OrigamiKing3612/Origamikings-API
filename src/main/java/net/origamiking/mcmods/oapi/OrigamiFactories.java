@@ -4,23 +4,21 @@ import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.origamiking.mcmods.oapi.blocks.OrigamiBlockSettings;
-import net.origamiking.mcmods.oapi.entity.boat.impl.item.OrigamiBoatItem;
 import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
 import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType.Builder;
 import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
+import net.origamiking.mcmods.oapi.entity.boat.impl.item.OrigamiBoatItem;
 import net.origamiking.mcmods.oapi.items.OrigamiItemSettings;
 
 public class OrigamiFactories {
@@ -44,21 +42,6 @@ public class OrigamiFactories {
 
     public static RegistryKey<ConfiguredFeature<?, ?>> configuredFeature(Identifier id) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, id);
-    }
-    public static TagKey<Block> blockTag(Identifier id) {
-        return TagKey.of(RegistryKeys.BLOCK, id);
-    }
-
-    public static TagKey<Item> itemTag(Identifier id) {
-        return TagKey.of(RegistryKeys.ITEM, id);
-    }
-
-    public static TagKey<Biome> biomeTag(Identifier id) {
-        return TagKey.of(RegistryKeys.BIOME, id);
-    }
-
-    public static TagKey<Fluid> fluidTag(Identifier id) {
-        return TagKey.of(RegistryKeys.FLUID, id);
     }
 
     public static Block planks(boolean isNether, MapColor color) {

@@ -5,7 +5,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class FluidUtils {
-    public static <T extends Fluid> T register(String id, T value) {
-        return Registry.register(Registries.FLUID, id, value);
+    public static <T extends Fluid> T register(String id, T fluid) {
+        return Registry.register(Registries.FLUID, id, fluid);
     }
 }

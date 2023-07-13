@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.blocks;
+package net.origamiking.mcmods.oapi.block_entity;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

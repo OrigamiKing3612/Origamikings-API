@@ -11,4 +11,7 @@ public class ClientUtils {
     public static void getTranslucent(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
     }
+    public static void getCutoutMipped(Block block) {
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
+    }
 }
