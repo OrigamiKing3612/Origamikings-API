@@ -9,7 +9,8 @@ public class ItemsUtils {
     /**
      * How to use. Just extend and use the methods or import `import static net.origamiking.mcmods.oapi.blocks.ItemUtils.*;`and use the methods
      */
-    public static Item registerItem(String id, String name, Item item) {
+
+    public static <I extends Item> I registerItem(String id, String name, I item) {
         return Registry.register(Registries.ITEM, new Identifier(id, name), item);
     }
 }
