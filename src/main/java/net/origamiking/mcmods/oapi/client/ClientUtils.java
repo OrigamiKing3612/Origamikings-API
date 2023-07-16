@@ -10,11 +10,20 @@ public class ClientUtils {
     public static void getCutout(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
     }
+    public static void getCutout(Block ... block) {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), block);
+    }
     public static void getTranslucent(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
     }
+    public static void getTranslucent(Block ... block) {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), block);
+    }
     public static void getCutoutMipped(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
+    }
+    public static void getCutoutMipped(Block ... block) {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutoutMipped(), block);
     }
     public static void defaultColorProviderRegistry(Block ... blocks) {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getDefaultColor(), blocks);
