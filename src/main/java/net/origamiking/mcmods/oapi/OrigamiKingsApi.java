@@ -2,6 +2,7 @@ package net.origamiking.mcmods.oapi;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.origamiking.mcmods.oapi.advancement.ModAdvancements;
 import net.origamiking.mcmods.oapi.commands.ModCommands;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,5 +16,6 @@ public class OrigamiKingsApi implements ModInitializer {
 	public void onInitialize() {
 		OrigamiKingsApi.LOGGER.info("Starting OrigamiKing's API " + VERSION);
 		ModCommands.registerCommands();
+		ModAdvancements.register();
 	}
 }
