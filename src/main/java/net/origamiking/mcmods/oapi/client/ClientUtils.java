@@ -45,11 +45,11 @@ public class ClientUtils {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getSpruceColor(), blocks);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getSpruceColor(), blocks);
     }
-    public static void fluidTextureRegistry(FlowableFluid still, FlowableFluid flowing) {
+    public static void fluidTextureRegistry(FlowableFluid still, FlowableFluid flowing, int tint) {
         FluidRenderHandlerRegistry.INSTANCE.register(still, flowing, new SimpleFluidRenderHandler(
                 new Identifier("minecraft:block/water_still"),
                 new Identifier("minecraft:block/water_flow"),
-                0x8c14d4
+                tint
         ));
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), still, flowing);
