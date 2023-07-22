@@ -6,13 +6,14 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.origamiking.mcmods.oapi.items.OrigamiItemSettings;
 
 public class BlocksUtils {
     /**
      * How to use. Just extend and use the methods or import `import static net.origamiking.mcmods.oapi.blocks.BlocksUtils.*;`and use the methods
      */
     public static Item registerBlockItem(String id, String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new Item.Settings()));
+        return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new OrigamiItemSettings()));
     }
     public static <B extends Block> B registerBlock(String id, String name, B block) {
         BlocksUtils.registerBlockItem(id, name, block);
