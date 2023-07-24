@@ -10,19 +10,22 @@ import java.util.function.Consumer;
 
 import static net.origamiking.mcmods.oapi.recipes.ModRecipeProvider.*;
 
-public class ModRecipeHelpers {
+public class ModRecipeProviders {
     public static void offerSlabs(Consumer<RecipeJsonProvider> exporter, Block slab, Block block) {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, block, 2);
         offerSlab(exporter, slab, block);
     }
+
     public static void offerStairs(Consumer<RecipeJsonProvider> exporter, Block stair, Block block) {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stair, block);
         offerStair(exporter, stair, block);
     }
+
     public static void offerWalls(Consumer<RecipeJsonProvider> exporter, Block wall, Block block) {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall, block);
         RecipeProvider.offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, wall, block);
     }
+
     public static void offerBlocks(Consumer<RecipeJsonProvider> exporter, Block block, Item item, boolean compress3x3, boolean uncompress) {
         if (uncompress) {
             if (compress3x3) {
@@ -37,5 +40,34 @@ public class ModRecipeHelpers {
                 offer2x2Compress(exporter, block, item);
             }
         }
+    }
+
+    public static void offerBlockSet(Consumer<RecipeJsonProvider> exporter, Block block, Block slab, Block stair, Block wall) {
+        offerSlabs(exporter, slab, block);
+        offerStairs(exporter, stair, block);
+        offerWalls(exporter, wall, block);
+    }
+
+    public static void offerBlockSet(Consumer<RecipeJsonProvider> exporter, Block block, Block slab, Block stair) {
+        offerSlabs(exporter, slab, block);
+        offerStairs(exporter, stair, block);
+    }
+
+    public static void offerBlockSet(Consumer<RecipeJsonProvider> exporter, Block block, Block slab, Block stair, Block wall, Item item, boolean is2x2) {
+        offerSlabs(exporter, slab, block);
+        offerStairs(exporter, stair, block);
+        offerWalls(exporter, wall, block);
+        offerBlocks(exporter, block, item, !is2x2, true);
+    }
+
+    public static void offerBlockSet(Consumer<RecipeJsonProvider> exporter, Block block, Block slab, Block stair, Item item, boolean is2x2) {
+        offerSlabs(exporter, slab, block);
+        offerStairs(exporter, stair, block);
+        offerBlocks(exporter, block, item, !is2x2, true);
+    }
+
+    public static void offerChests(Consumer<RecipeJsonProvider> exporter, Block chest, Block trapped_chest, Block planks) {
+        offerChestRecipe(exporter, chest, planks);
+        offerTrappedChestRecipe(exporter, trapped_chest, planks);
     }
 }

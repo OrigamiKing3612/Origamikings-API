@@ -43,7 +43,6 @@ public class OrigamiShapedRecipeJsonBuilder extends RecipeJsonBuilder implements
         this.output = output.asItem();
         this.count = count;
     }
-
     public static OrigamiShapedRecipeJsonBuilder create(RecipeCategory category, ItemConvertible output) {
         return OrigamiShapedRecipeJsonBuilder.create(category, output, 1);
     }
@@ -139,8 +138,7 @@ public class OrigamiShapedRecipeJsonBuilder extends RecipeJsonBuilder implements
         }
     }
 
-    static class OrigamiShapedRecipeJsonProvider
-            extends RecipeJsonBuilder.CraftingRecipeJsonProvider {
+    static class OrigamiShapedRecipeJsonProvider extends RecipeJsonBuilder.CraftingRecipeJsonProvider {
         private final Identifier recipeId;
         private final Item output;
         private final int resultCount;
