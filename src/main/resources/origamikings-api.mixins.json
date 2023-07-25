@@ -3,11 +3,10 @@
 	"package": "net.origamiking.mcmods.oapi.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
-		"MixinBoatEntity"
+		"ExampleMixin"
 	],
 	"client": [
-		"MixinBoatEntityRenderer"
+
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -5,7 +5,6 @@ import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -15,10 +14,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.origamiking.mcmods.oapi.blocks.OrigamiBlockSettings;
-import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType;
-import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatType.Builder;
-import net.origamiking.mcmods.oapi.entity.boat.api.OrigamiBoatTypeRegistry;
-import net.origamiking.mcmods.oapi.entity.boat.impl.item.OrigamiBoatItem;
 import net.origamiking.mcmods.oapi.items.OrigamiItemSettings;
 
 public class OrigamiFactories {
@@ -170,21 +165,6 @@ public class OrigamiFactories {
                 .flammability(30, 60));
     }
 
-    public static OrigamiBoatType boat(Identifier id, ItemConvertible planks, boolean raft) {
-        RegistryKey<OrigamiBoatType> key = OrigamiBoatTypeRegistry.createKey(id);
-        var builder = new Builder()
-                .item(new OrigamiBoatItem(key, false, new OrigamiItemSettings().maxCount(1)))
-                .chestItem(new OrigamiBoatItem(key, true, new OrigamiItemSettings().maxCount(1)))
-                .planks(planks.asItem());
-        if(raft) builder.raft();
-        return builder.build();
-    }
-    public static OrigamiBoatType boat(Identifier id, ItemConvertible planks) {
-        return boat(id, planks, false);
-    }
-    public static OrigamiBoatType raft(Identifier id, ItemConvertible planks) {
-        return boat(id, planks, true);
-    }
     // Random Stuff
     public static SpawnEggItem spawnEgg(EntityType<? extends MobEntity> entity, int primaryColor, int secondaryColor) {
         return new SpawnEggItem(entity, primaryColor, secondaryColor, new OrigamiItemSettings());
