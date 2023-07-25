@@ -9,7 +9,7 @@ import static net.minecraft.stat.Stats.CUSTOM;
 
 public class StatUtils {
     public static Identifier registerStat(String modid, String id, StatFormatter formatter) {
-        Identifier identifier = new Identifier(modid + ":" + id);
+        Identifier identifier = new Identifier(modid, id);
         Registry.register(Registries.CUSTOM_STAT, id, identifier);
         CUSTOM.getOrCreateStat(identifier, formatter);
         return identifier;
