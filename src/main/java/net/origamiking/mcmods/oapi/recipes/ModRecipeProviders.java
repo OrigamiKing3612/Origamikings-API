@@ -15,6 +15,10 @@ public class ModRecipeProviders {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, block, 2);
         offerSlab(exporter, slab, block);
     }
+    public static void offerVerticalSlabs(Consumer<RecipeJsonProvider> exporter, Block vertical_slab, Block block) {
+        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, vertical_slab, block, 2);
+        offerVerticalSlab(exporter, vertical_slab, block);
+    }
 
     public static void offerStairs(Consumer<RecipeJsonProvider> exporter, Block stair, Block block) {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stair, block);

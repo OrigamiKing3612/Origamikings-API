@@ -19,7 +19,7 @@ public class ModRecipeProvider {
         createBarRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
 
-    public static void offerVerticalSlabRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerVerticalSlab(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         createVerticalSlab(output, Ingredient.ofItems(input)).criterion(hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
 
