@@ -69,5 +69,21 @@ public class ModRecipeProvider {
         createSlab(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
     }
 
+    public static void offerHelmet(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createHelmet(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+
+    public static void offerChestplate(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createChestplate(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+
+    public static void offerLeggings(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createLeggings(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+
+    public static void offerBoots(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        createBoots(output, Ingredient.ofItems(input)).criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input)).offerTo(exporter);
+    }
+
 
 }

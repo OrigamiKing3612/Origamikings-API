@@ -47,4 +47,16 @@ public class OrigamiRecipes {
     protected static CraftingRecipeJsonBuilder createSlab(ItemConvertible output, Ingredient input) {
         return OrigamiShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 6).input('I', input).pattern("III");
     }
+    protected static CraftingRecipeJsonBuilder createHelmet(ItemConvertible output, Ingredient input) {
+        return OrigamiShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output, 1).input('I', input).pattern("III").pattern("I I");
+    }
+    protected static CraftingRecipeJsonBuilder createChestplate(ItemConvertible output, Ingredient input) {
+        return OrigamiShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output, 1).input('I', input).pattern("I I").pattern("III").pattern("III");
+    }
+    protected static CraftingRecipeJsonBuilder createLeggings(ItemConvertible output, Ingredient input) {
+        return OrigamiShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output, 1).input('I', input).pattern("III").pattern("I I").pattern("I I");
+    }
+    protected static CraftingRecipeJsonBuilder createBoots(ItemConvertible output, Ingredient input) {
+        return OrigamiShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, output, 1).input('I', input).pattern("I I");
+    }
 }

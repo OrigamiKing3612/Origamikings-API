@@ -15,9 +15,15 @@ public class ModRecipeProviders {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, slab, block, 2);
         offerSlab(exporter, slab, block);
     }
+
     public static void offerVerticalSlabs(Consumer<RecipeJsonProvider> exporter, Block vertical_slab, Block block) {
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, vertical_slab, block, 2);
         offerVerticalSlab(exporter, vertical_slab, block);
+    }
+
+    public static void offerCarpets(Consumer<RecipeJsonProvider> exporter, Block carpet, Block block) {
+        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, carpet, block, 8);
+        RecipeProvider.offerCarpetRecipe(exporter, carpet, block);
     }
 
     public static void offerStairs(Consumer<RecipeJsonProvider> exporter, Block stair, Block block) {
@@ -73,5 +79,11 @@ public class ModRecipeProviders {
     public static void offerChests(Consumer<RecipeJsonProvider> exporter, Block chest, Block trapped_chest, Block planks) {
         offerChestRecipe(exporter, chest, planks);
         offerTrappedChestRecipe(exporter, trapped_chest, planks);
+    }
+    public static void offerArmorSet(Consumer<RecipeJsonProvider> exporter, Item input, Item helmet, Item chestplate, Item leggings, Item boots ) {
+        offerHelmet(exporter, helmet, input);
+        offerChestplate(exporter, chestplate, input);
+        offerLeggings(exporter, leggings, input);
+        offerBoots(exporter, boots, input);
     }
 }
