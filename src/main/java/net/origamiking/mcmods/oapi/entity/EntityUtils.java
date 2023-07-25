@@ -1,4 +1,4 @@
-package net.origamiking.mcmods.oapi.entities;
+package net.origamiking.mcmods.oapi.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
