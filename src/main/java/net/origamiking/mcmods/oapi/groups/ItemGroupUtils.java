@@ -13,4 +13,9 @@ public class ItemGroupUtils {
     public static void addToItemGroup(RegistryKey<ItemGroup> group, ItemGroupEvents.ModifyEntries item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(item);
     }
+    public static void addToItemGroup(RegistryKey<ItemGroup> group, ItemGroupEvents.ModifyEntries ... items) {
+        for (ItemGroupEvents.ModifyEntries item : items) {
+            ItemGroupEvents.modifyEntriesEvent(group).register(item);
+        }
+    }
 }
