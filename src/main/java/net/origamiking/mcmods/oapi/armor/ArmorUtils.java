@@ -1,5 +1,6 @@
 package net.origamiking.mcmods.oapi.armor;
 
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -24,6 +25,18 @@ public class ArmorUtils {
         return player.getEquippedStack(EquipmentSlot.LEGS).getItem();
     }
     public static Item getBootsItem(ServerPlayerEntity player) {
+        return player.getEquippedStack(EquipmentSlot.FEET).getItem();
+    }
+    public static Item getHelmetItem(ClientPlayerEntity player) {
+        return player.getEquippedStack(EquipmentSlot.HEAD).getItem();
+    }
+    public static Item getChestplateItem(ClientPlayerEntity player) {
+        return player.getEquippedStack(EquipmentSlot.CHEST).getItem();
+    }
+    public static Item getLeggingsItem(ClientPlayerEntity player) {
+        return player.getEquippedStack(EquipmentSlot.LEGS).getItem();
+    }
+    public static Item getBootsItem(ClientPlayerEntity player) {
         return player.getEquippedStack(EquipmentSlot.FEET).getItem();
     }
 }
