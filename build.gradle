@@ -94,6 +94,14 @@ jar {
 		])
 	}
 }
+
+tasks.register('publishAll') {
+	dependsOn publish, curseforge, modrinth
+	doLast {
+		println "All publish tasks completed!"
+	}
+}
+
 // configure the maven publication
 publishing {
 	publications {
