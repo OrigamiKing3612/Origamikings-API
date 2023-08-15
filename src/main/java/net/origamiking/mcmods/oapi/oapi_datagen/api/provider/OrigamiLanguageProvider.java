@@ -36,6 +36,7 @@ import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Identifier;
 import net.origamiking.mcmods.oapi.oapi_datagen.api.OrigamiDataOutput;
+import net.origamiking.mcmods.oapi.utils.OrigamiUtils;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ import java.util.TreeMap;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Extend this class and implement {@link OrigamiLanguageProvider#generateTranslations(TranslationBuilder)}.
+ * Extend this class and implement {@link OrigamiLanguageProvider#generateTranslations(OrigamiTranslationBuilder)}.
  * Make sure to use {@link OrigamiLanguageProvider#OrigamiLanguageProvider(net.origamiking.mcmods.oapi.oapi_datagen.api.OrigamiDataOutput, String)} OrigamiLanguageProvider} to declare what language code is being generated if it isn't {@code en_us}.
  *
  * <p>Register an instance of the class with {@link net.origamiking.mcmods.oapi.oapi_datagen.api.OrigamiDataGenerator.Pack#addProvider} in a {@link net.origamiking.mcmods.oapi.oapi_datagen.api.OrigamiDataGeneratorEntrypoint}.
@@ -69,9 +70,9 @@ public abstract class OrigamiLanguageProvider implements DataProvider {
 	/**
 	 * Implement this method to register languages.
 	 *
-	 * <p>Call {@link TranslationBuilder#add(String, String)} to add a translation.
+	 * <p>Call {@link OrigamiTranslationBuilder#add(String, String)} to add a translation.
 	 */
-	public abstract void generateTranslations(TranslationBuilder translationBuilder);
+	public abstract void generateTranslations(OrigamiTranslationBuilder translationBuilder);
 
 	@Override
 	public CompletableFuture<?> run(DataWriter writer) {
@@ -109,11 +110,11 @@ public abstract class OrigamiLanguageProvider implements DataProvider {
 	}
 
 	/**
-	 * A consumer used by {@link OrigamiLanguageProvider#generateTranslations(TranslationBuilder)}.
+	 * A consumer used by {@link OrigamiLanguageProvider#generateTranslations(OrigamiTranslationBuilder)}.
 	 */
 	@ApiStatus.NonExtendable
 	@FunctionalInterface
-	public interface TranslationBuilder {
+	public interface OrigamiTranslationBuilder {
 		/**
 		 * Adds a translation.
 		 *
@@ -218,6 +219,10 @@ public abstract class OrigamiLanguageProvider implements DataProvider {
 		 */
 		default void add(Identifier identifier, String value) {
 			add(identifier.toTranslationKey(), value);
+		}
+
+		default void add(Item item) {
+			add(item.getTranslationKey(), OrigamiUtils.getName(item.toString()));
 		}
 
 		/**

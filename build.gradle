@@ -43,6 +43,7 @@ loom {
 			vmArg "-Dorigami-api.datagen.output-dir=${file("src/main/generated")}"
 			vmArg "-Dorigami-api.datagen.modid=origamikings-api"
 
+
 			runDir "build/datagen"
 		}
 	}
