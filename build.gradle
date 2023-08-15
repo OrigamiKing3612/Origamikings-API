@@ -19,18 +19,33 @@ repositories {
 }
 
 loom {
-    runs {
-        // This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
-        datagen {
-            inherit server
-            name "Data Generation"
-            vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-            vmArg "-Dfabric-api.datagen.modid=origamikings-api"
- 
-            runDir "build/datagen"
-        }
-    }
+	runs {
+		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+		datagen {
+			inherit server
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=origamikings-api"
+
+			runDir "build/datagen"
+		}
+	}
+}
+
+loom {
+	runs {
+		// This adds a new gradle task that runs the origami-datagen API: "gradlew runOrigamiDatagen"
+		origamiDatagen {
+			inherit server
+			name "Origami Data Generation"
+			vmArg "-Dorigami-api.datagen"
+			vmArg "-Dorigami-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dorigami-api.datagen.modid=origamikings-api"
+
+			runDir "build/datagen"
+		}
+	}
 }
 // Add the generated resources to the main source set
 sourceSets {
@@ -93,6 +108,10 @@ jar {
 				"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
 		])
 	}
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/origamikings-api.accesswidener")
 }
 
 tasks.register('publishAll') {

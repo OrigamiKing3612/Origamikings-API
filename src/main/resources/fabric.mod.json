@@ -33,6 +33,7 @@
 	"mixins": [
 		"origamikings-api.mixins.json"
 	],
+	"accessWidener" : "origamikings-api.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.14.21",
 		"minecraft": ">=1.20.1",

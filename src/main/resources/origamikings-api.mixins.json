@@ -1,14 +1,19 @@
 {
-	"required": true,
-	"package": "net.origamiking.mcmods.oapi.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"client": [
-
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.origamiking.mcmods.oapi.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "origami_datagen.TagBuilderMixin",
+    "origami_datagen.TagProviderMixin",
+    "origami_datagen.loot.BlockLootTableGeneratorMixin"
+  ],
+  "client": [
+    "origami_datagen.client.MinecraftClientMixin"
+  ],
+  "server": [
+    "origami_datagen.server.MainMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
