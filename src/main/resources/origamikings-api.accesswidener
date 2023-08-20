@@ -1,0 +1,15 @@
+accessWidener v2 named
+
+accessible field net/minecraft/registry/BuiltinRegistries REGISTRY_BUILDER Lnet/minecraft/registry/RegistryBuilder;
+accessible class net/minecraft/registry/RegistryBuilder$RegistryInfo
+accessible method net/minecraft/registry/BuiltinRegistries validate (Lnet/minecraft/registry/RegistryWrapper$WrapperLookup;)V
+accessible field net/minecraft/registry/RegistryBuilder registries Ljava/util/List;
+accessible method net/minecraft/registry/RegistryBuilder$RegistryInfo key ()Lnet/minecraft/registry/RegistryKey;
+accessible method net/minecraft/data/DataGenerator$Pack <init> (Lnet/minecraft/data/DataGenerator;ZLjava/lang/String;Lnet/minecraft/data/DataOutput;)V
+accessible field net/minecraft/data/DataGenerator output Lnet/minecraft/data/DataOutput;
+accessible field net/minecraft/data/server/recipe/RecipeProvider recipesPathResolver Lnet/minecraft/data/DataOutput$PathResolver;
+accessible field net/minecraft/data/server/recipe/RecipeProvider advancementsPathResolver Lnet/minecraft/data/DataOutput$PathResolver;
+accessible field net/minecraft/data/server/tag/TagProvider$ProvidedTagBuilder builder Lnet/minecraft/registry/tag/TagBuilder;
+accessible field net/minecraft/registry/tag/TagEntry id Lnet/minecraft/util/Identifier;
+accessible field net/minecraft/registry/tag/TagEntry required Z
+accessible method net/minecraft/registry/tag/TagEntry <init> (Lnet/minecraft/util/Identifier;ZZ)V
