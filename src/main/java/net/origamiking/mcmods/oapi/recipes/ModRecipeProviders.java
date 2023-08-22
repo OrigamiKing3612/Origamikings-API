@@ -80,7 +80,8 @@ public class ModRecipeProviders {
         offerChestRecipe(exporter, chest, planks);
         offerTrappedChestRecipe(exporter, trapped_chest, planks);
     }
-    public static void offerArmorSet(Consumer<RecipeJsonProvider> exporter, Item input, Item helmet, Item chestplate, Item leggings, Item boots ) {
+
+    public static void offerArmorSet(Consumer<RecipeJsonProvider> exporter, Item input, Item helmet, Item chestplate, Item leggings, Item boots) {
         offerHelmet(exporter, helmet, input);
         offerChestplate(exporter, chestplate, input);
         offerLeggings(exporter, leggings, input);

@@ -6,6 +6,7 @@ import net.minecraft.block.Oxidizable;
 
 public class CopperButtonBlock extends ButtonBlock {
     public final Oxidizable.OxidationLevel oxidizationLevel;
+
     public CopperButtonBlock(Oxidizable.OxidationLevel oxidizationLevel, Settings settings) {
         super(settings, BlockSetType.IRON, 30, false);
         this.oxidizationLevel = oxidizationLevel;

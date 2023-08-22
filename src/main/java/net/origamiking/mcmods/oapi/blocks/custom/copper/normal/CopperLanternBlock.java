@@ -5,6 +5,7 @@ import net.minecraft.block.Oxidizable;
 
 public class CopperLanternBlock extends LanternBlock {
     public final Oxidizable.OxidationLevel oxidizationLevel;
+
     public CopperLanternBlock(Oxidizable.OxidationLevel oxidizationLevel, Settings settings) {
         super(settings);
         this.oxidizationLevel = oxidizationLevel;

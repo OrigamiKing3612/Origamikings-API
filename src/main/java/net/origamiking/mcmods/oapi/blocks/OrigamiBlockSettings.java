@@ -12,8 +12,9 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
-import java.util.function.Function;
+
 import java.util.function.ToIntFunction;
+
 /**
  * My version of {@code Block.Settings}. This adds more stuff then the {@code FabricBlockSettings}
  *
@@ -28,9 +29,11 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     private Block stripInto;
     @Nullable
     private Item.Settings itemSettings;
+
     public OrigamiBlockSettings() {
         super();
     }
+
     public OrigamiBlockSettings(AbstractBlock.Settings settings) {
         this();
         // Mostly Copied from vanilla's copy method
@@ -66,6 +69,7 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         this.postProcess(otherAccessor.getPostProcessPredicate());
         this.emissiveLighting(otherAccessor.getEmissiveLightingPredicate());
     }
+
     public int getFlameBurn() {
         return flameBurn;
     }
@@ -78,6 +82,7 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     public Block getStripInto() {
         return stripInto;
     }
+
     @Nullable
     public Item.Settings getItemSettings() {
         return itemSettings;
@@ -86,6 +91,7 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     public static OrigamiBlockSettings create() {
         return new OrigamiBlockSettings();
     }
+
     public static OrigamiBlockSettings copy(AbstractBlock block) {
         return new OrigamiBlockSettings(((AbstractBlockAccessor) block).getSettings());
     }
@@ -99,6 +105,7 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
     }
 
     //new stuff
+
     /**
      * Burning and spreading chances of a block.
      *
@@ -109,19 +116,23 @@ public class OrigamiBlockSettings extends FabricBlockSettings {
         this.flameSpread = spread;
         return this;
     }
+
     @Override
     public OrigamiBlockSettings pistonBehavior(PistonBehavior pistonBehavior) {
         super.pistonBehavior(pistonBehavior);
         return this;
     }
+
     /**
      * Sets the block that this block will be stripped into when using an axe.
+     *
      * @see net.minecraft.item.AxeItem Vanilla axe stripping values
      */
     public OrigamiBlockSettings stripInto(Block block) {
         this.stripInto = block;
         return this;
     }
+
     /**
      * Provides item settings for a {@code BlockItem} to be registered with this block.
      * <p>The item will be registered with the same identifier as the block.

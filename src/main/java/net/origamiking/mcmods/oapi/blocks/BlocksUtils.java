@@ -15,10 +15,12 @@ public class BlocksUtils {
     public static Item registerBlockItem(String id, String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new OrigamiItemSettings()));
     }
+
     public static <B extends Block> B registerBlock(String id, String name, B block) {
         BlocksUtils.registerBlockItem(id, name, block);
         return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
     }
+
     public static <B extends Block> B registerBlockWithOutBlockItem(String id, String name, B block) {
         return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
     }

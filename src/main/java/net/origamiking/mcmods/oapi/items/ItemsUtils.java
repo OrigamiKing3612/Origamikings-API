@@ -16,6 +16,7 @@ public class ItemsUtils {
     public static <I extends Item> I registerItem(String id, String name, I item) {
         return Registry.register(Registries.ITEM, new Identifier(id, name), item);
     }
+
     public static Item registerBucketItem(String id, String name, FlowableFluid still) {
         return Registry.register(Registries.ITEM, new Identifier(id, name), new BucketItem(still, new OrigamiItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }

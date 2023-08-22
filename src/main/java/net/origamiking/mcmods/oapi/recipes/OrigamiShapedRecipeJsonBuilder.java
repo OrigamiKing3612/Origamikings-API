@@ -37,12 +37,13 @@ public class OrigamiShapedRecipeJsonBuilder extends RecipeJsonBuilder implements
     @Nullable
     private String group;
     private boolean showNotification = true;
-    
+
     public OrigamiShapedRecipeJsonBuilder(RecipeCategory category, ItemConvertible output, int count) {
         this.category = category;
         this.output = output.asItem();
         this.count = count;
     }
+
     public static OrigamiShapedRecipeJsonBuilder create(RecipeCategory category, ItemConvertible output) {
         return OrigamiShapedRecipeJsonBuilder.create(category, output, 1);
     }

@@ -47,7 +47,7 @@ public class OrigamiFactories {
         OrigamiBlockSettings settings = isNether ? OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.NETHER_WOOD).mapColor(color) : OrigamiBlockSettings.create().strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable().mapColor(color)
                 .item()
                 .sounds(isNether ? BlockSoundGroup.NETHER_WOOD : BlockSoundGroup.WOOD);
-        if(isNether) settings.flammability(5, 20);
+        if (isNether) settings.flammability(5, 20);
         return settings;
     }
 
@@ -56,7 +56,7 @@ public class OrigamiFactories {
                 .item()
                 .strength(2.0F)
                 .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
-        if(isNether) settings.flammability(5, 5);
+        if (isNether) settings.flammability(5, 5);
         return settings;
     }
 
@@ -65,7 +65,7 @@ public class OrigamiFactories {
                 .item()
                 .strength(2.0F)
                 .sounds(isNether ? BlockSoundGroup.NETHER_STEM : BlockSoundGroup.WOOD);
-        if(isNether) settings.flammability(5, 5);
+        if (isNether) settings.flammability(5, 5);
         return settings;
     }
 
@@ -104,14 +104,14 @@ public class OrigamiFactories {
 
     public static FenceBlock fence(boolean isNether, Block baseBlock) {
         OrigamiBlockSettings settings = OrigamiBlockSettings.copy(baseBlock).item(new OrigamiItemSettings().fuelTime(isNether ? 0 : 300));
-        if(isNether) settings.flammability(5, 20);
+        if (isNether) settings.flammability(5, 20);
         return new FenceBlock(settings);
     }
 
 
     public static FenceGateBlock fenceGate(boolean isNether, Block baseBlock, WoodType woodType) {
         OrigamiBlockSettings settings = OrigamiBlockSettings.copy(baseBlock).item(new OrigamiItemSettings().fuelTime(isNether ? 0 : 300));
-        if(isNether) settings.flammability(5, 20);
+        if (isNether) settings.flammability(5, 20);
         return new FenceGateBlock(settings, woodType);
     }
 
@@ -142,6 +142,7 @@ public class OrigamiFactories {
     public static DoorBlock woodenDoor(Block baseBlock) {
         return door(baseBlock, BlockSetType.OAK);
     }
+
     public static FlowerPotBlock potted(Block content) {
         return new FlowerPotBlock(content, OrigamiBlockSettings.create().mapColor(MapColor.CLEAR).notSolid().breakInstantly().nonOpaque().luminance(content.getDefaultState().getLuminance()).pistonBehavior(PistonBehavior.DESTROY));
     }

@@ -27,37 +27,47 @@ public class ClientUtils {
     public static void getCutout(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
     }
-    public static void getCutout(Block ... block) {
+
+    public static void getCutout(Block... block) {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), block);
     }
+
     public static void getTranslucent(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
     }
-    public static void getTranslucent(Block ... block) {
+
+    public static void getTranslucent(Block... block) {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), block);
     }
+
     public static void getCutoutMipped(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
     }
-    public static void getCutoutMipped(Block ... block) {
+
+    public static void getCutoutMipped(Block... block) {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutoutMipped(), block);
     }
-    public static void defaultColorProviderRegistry(Block ... blocks) {
+
+    public static void defaultColorProviderRegistry(Block... blocks) {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getDefaultColor(), blocks);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getDefaultColor(), blocks);
     }
-    public static void birchColorProviderRegistry(Block ... blocks) {
+
+    public static void birchColorProviderRegistry(Block... blocks) {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getBirchColor(), blocks);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getBirchColor(), blocks);
     }
-    public static void mangroveColorProviderRegistry(Block ... blocks) {
+
+    public static void mangroveColorProviderRegistry(Block... blocks) {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getMangroveColor(), blocks);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getMangroveColor(), blocks);
     }
-    public static void spruceColorProviderRegistry(Block ... blocks) {
+
+    public static void spruceColorProviderRegistry(Block... blocks) {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> FoliageColors.getSpruceColor(), blocks);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getSpruceColor(), blocks);
     }
+
     public static void fluidTextureRegistry(FlowableFluid still, FlowableFluid flowing, int tint) {
         FluidRenderHandlerRegistry.INSTANCE.register(still, flowing, new SimpleFluidRenderHandler(
                 new Identifier("minecraft:block/water_still"),
@@ -67,12 +77,15 @@ public class ClientUtils {
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), still, flowing);
     }
+
     public static <T extends BlockEntity> void registerBlockEntityRenderer(BlockEntityType<? extends T> type, BlockEntityRendererFactory<T> factory) {
         BlockEntityRendererFactories.register(type, factory);
     }
+
     public static <E extends Entity> void registerEntityRenderer(EntityType<? extends E> entityType, EntityRendererFactory<E> entityRendererFactory) {
         EntityRendererRegistry.register(entityType, entityRendererFactory);
     }
+
     public static <M extends ScreenHandler, U extends Screen & ScreenHandlerProvider<M>> void registerHandledScreen(ScreenHandlerType<? extends M> type, HandledScreens.Provider<M, U> provider) {
         HandledScreens.register(type, provider);
     }

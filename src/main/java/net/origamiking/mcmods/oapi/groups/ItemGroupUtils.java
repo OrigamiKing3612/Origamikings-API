@@ -10,10 +10,12 @@ public class ItemGroupUtils {
     public static RegistryKey<ItemGroup> itemGroup(String modid, String id) {
         return RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(modid, id));
     }
+
     public static void addToItemGroup(RegistryKey<ItemGroup> group, ItemGroupEvents.ModifyEntries item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(item);
     }
-    public static void addToItemGroup(RegistryKey<ItemGroup> group, ItemGroupEvents.ModifyEntries ... items) {
+
+    public static void addToItemGroup(RegistryKey<ItemGroup> group, ItemGroupEvents.ModifyEntries... items) {
         for (ItemGroupEvents.ModifyEntries item : items) {
             ItemGroupEvents.modifyEntriesEvent(group).register(item);
         }

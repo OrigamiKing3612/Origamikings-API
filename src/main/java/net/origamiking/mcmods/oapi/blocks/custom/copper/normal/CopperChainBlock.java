@@ -5,6 +5,7 @@ import net.minecraft.block.Oxidizable;
 
 public class CopperChainBlock extends ChainBlock {
     public final Oxidizable.OxidationLevel oxidizationLevel;
+
     public CopperChainBlock(Oxidizable.OxidationLevel oxidizationLevel, Settings settings) {
         super(settings);
         this.oxidizationLevel = oxidizationLevel;

@@ -12,6 +12,7 @@ public class BlockEntityUtils {
     public static <B extends Block> B registerBlock(String id, String name, B block) {
         return register(block, new Identifier(id, name));
     }
+
     private static <B extends Block> B register(B block, Identifier name) {
         Registry.register(Registries.BLOCK, name, block);
         BlockItem item = new BlockItem(block, (new OrigamiItemSettings()));

@@ -11,6 +11,7 @@ public class OxidizableCopperButtonBlock extends CopperButtonBlock implements Ox
     public OxidizableCopperButtonBlock(OxidationLevel oxidizationLevel, Settings settings) {
         super(oxidizationLevel, settings);
     }
+
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         tickDegradation(state, world, pos, random);

@@ -10,9 +10,7 @@ import net.minecraft.text.Text;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class CommandsUtil {
-    /** To use make this
-     * <p>CommandsUtil.makeVersionCommand(MOD_ID, VERSION);</p>
-     */
+    @Deprecated
     public static void makeVersionCommand(String id, String version) {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal(id + "-version")
                 .executes(context -> {
@@ -20,9 +18,8 @@ public class CommandsUtil {
                     return 1;
                 })));
     }
-    /** To use make this
-     * <p>CommandsUtil.simpleStringReturnCommand("Command-Name", "Text to say");</p>
-     */
+
+    @Deprecated
     public static void simpleStringReturnCommand(String commandName, String text) {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal(commandName)
                 .executes(context -> {
@@ -31,10 +28,7 @@ public class CommandsUtil {
                 })));
     }
 
-    /**
-     * To use
-     * <p>CommandsUtil.linkReturnCommand("Command-Name", "Link", "Hover-Text");</p>
-     */
+    @Deprecated
     public static void linkReturnCommand(String commandName, String link, String hoverText) {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(literal(commandName)
@@ -51,12 +45,14 @@ public class CommandsUtil {
             return 1;
         }));
     }
-    public static void versionCommand(LiteralArgumentBuilder<ServerCommandSource> command, String version, String modid) {
+
+    public static void makeVersionCommand(LiteralArgumentBuilder<ServerCommandSource> command, String version, String modid) {
         command.then(literal("version").executes(context -> {
             context.getSource().sendMessage(Text.of("You are on " + version + " of " + modid));
             return 1;
         }));
     }
+
     public static void simpleStringReturnCommand(LiteralArgumentBuilder<ServerCommandSource> command, String commandName, String text) {
         command.then(literal(commandName)
                 .executes(context -> {
