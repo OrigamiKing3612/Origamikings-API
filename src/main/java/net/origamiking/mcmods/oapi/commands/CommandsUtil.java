@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class CommandsUtil {
+    //todo remove
     @Deprecated
     public static void makeVersionCommand(String id, String version) {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal(id + "-version")
