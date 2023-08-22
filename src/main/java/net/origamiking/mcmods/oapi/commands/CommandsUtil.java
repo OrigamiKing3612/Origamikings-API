@@ -51,9 +51,9 @@ public class CommandsUtil {
             return 1;
         }));
     }
-    public static void versionCommand(LiteralArgumentBuilder<ServerCommandSource> command, String version) {
+    public static void versionCommand(LiteralArgumentBuilder<ServerCommandSource> command, String version, String modid) {
         command.then(literal("version").executes(context -> {
-            context.getSource().sendMessage(Text.of(version));
+            context.getSource().sendMessage(Text.of("You are on " + version + " of " + modid));
             return 1;
         }));
     }
