@@ -1,3 +1,5 @@
+# I am kinda done with modding so this mod is archived. I may get back to it one day.
+
 # Origamikings-API
 
 This is an API mod that my mods use. This mod will not change gameplay. This mod will be embedded in most of my mods
